@@ -22,7 +22,7 @@ function WeatherApp() {
     <div style={{
       padding: '30px', fontFamily: 'Arial', textAlign: 'center',
       maxWidth: '400px', margin: '50px auto',
-      backgroundColor: '#000000ff', borderRadius: '10px',
+      backgroundColor: '#002459ff', borderRadius: '10px',
       boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
     }}>
       <h1>What's The Weather</h1>
@@ -52,10 +52,10 @@ function SearchComponent() {
     <div>
       <input type="text"
         // value={cityRef}
-        ref = {cityRef}
+        ref={cityRef}
         // onChange={(e) => setCity(e.target.value)}
         placeholder="Enter city name"
-        style={{ flexGrow: 1, padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}
+        style={{ flexGrow: 1, padding: '10px', paddingRight: "55px", border: '1px solid #ccc', borderRadius: '5px' }}
         // Allows pressing "Enter" to search
         onKeyPress={(e) => {
           if (e.key === 'Enter') handleSearch();
@@ -64,7 +64,7 @@ function SearchComponent() {
       <button
         style={{
           padding: '10px 15px', marginLeft: '10px', border: 'none',
-          backgroundColor: '#34D399', color: 'white',
+          backgroundColor: '#018490ff', color: 'white',
           borderRadius: '5px', cursor: 'pointer'
         }}
         onClick={handleSearch}
@@ -125,7 +125,7 @@ function WeatherDataComponent() {
     <div style={{
       padding: '30px', fontFamily: 'Arial', textAlign: 'center',
       maxWidth: '400px', margin: '50px auto',
-      backgroundColor: '#00ddffff', borderRadius: '10px',
+      backgroundColor: '#2c67f2ff', borderRadius: '10px',
       boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
     }}>
       {/* 6. The conditional display logic */}
@@ -134,9 +134,14 @@ function WeatherDataComponent() {
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       {WeatherData && !loading && !error && (
-        <div style={{ color: "black" }}>
-          <h2>Current Weather in {WeatherData.name}</h2>
-          <h1>{Math.round(WeatherData.main.temp)}°C</h1>
+        <div>
+          <h2 style={{ color: "black" }}>Current Weather in {WeatherData.name}</h2>
+          <h1 style={{ color: "black" }}>{Math.round(WeatherData.main.temp)}°C</h1>
+          {/* --- ADD THIS LINE --- */}
+            <img 
+            src={`https://openweathermap.org/img/wn/${WeatherData.weather[0].icon}@2x.png`}
+            alt={WeatherData.weather[0].description}
+          />
           <p>{WeatherData.weather[0].description}</p>
         </div>
       )}
