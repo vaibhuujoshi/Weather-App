@@ -35,8 +35,12 @@ function WeatherApp() {
 function SearchComponent() {
 
   // const city = useRecoilValue(cityInput)
-  const cityRef = useRef("")
   // const setCity = useSetRecoilState(cityInput)
+
+  const cityRef = useRef("")
+  // here we minimises render using useRef()
+  //earlier it uses city state which was re-rendering every time due to onchange function
+
   const setSearchCity = useSetRecoilState(searchCity)
 
   const handleSearch = () => {
