@@ -6,7 +6,7 @@ import { weatherData } from './assets/store/weatherData';
 import { loadingWeather } from './assets/store/loading';
 import { errorWeather } from './assets/store/error';
 
-// The API key is accessed securely from the .env.local file
+//The API key is accessed securely from the .env.local file
 const API_KEY = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
 
 function App() {
